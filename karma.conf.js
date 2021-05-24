@@ -48,8 +48,11 @@ module.exports = function (config) {
     },
     jasmineDiffReporter: {
       color: {
+        defaultFg: "black",
+        expectedFg: "black",
         expectedBg: "bgGreen",
         expectedWhitespaceBg: "bgGreen",
+        actualFg: "black",
         actualBg: "bgRed",
         actualWhitespaceBg: "bgRed",
       },

@@ -16,14 +16,7 @@ export class HomeLogicService {
       pending: tasks.filter((task) => !task.done).length,
     };
   }
-  public filterTransactionsByProjectId(
-    transactions: Transaction[],
-    projectId: string
-  ): Transaction[] {
-    return transactions.filter(
-      (transaction) => transaction.projectId === projectId
-    );
-  }
+
   public composeProjectViews(
     projects: Project[],
     transactions: Transaction[]
@@ -33,23 +26,24 @@ export class HomeLogicService {
       this.composeProjectView(project, transactions)
     );
   }
-  public composeProjectView(
+
+  private composeProjectView(
     project: Project,
     transactions: Transaction[]
   ): ProjectView {
     const projectView: ProjectView = { ...project };
-    const projectTransactions = this.filterTransactionsByProjectId(
-      transactions,
-      projectView.id
+    const projectTransactions = transactions.filter(
+      (transaction) => transaction.projectId === projectView.id
     );
-    this.processExpenses(projectTransactions, projectView);
-    this.processIncomes(projectTransactions, projectView);
+    this.accumulateExpenses(projectTransactions, projectView);
+    this.accumulateIncomes(projectTransactions, projectView);
     projectView.profit =
       (projectView.totalIncomes || 0) - (projectView.totalExpenses || 0);
     projectView.balance = projectView.budget + projectView.profit;
     return projectView;
   }
-  private processExpenses(
+
+  private accumulateExpenses(
     transactions: Transaction[],
     projectView: ProjectView
   ): void {
@@ -65,7 +59,7 @@ export class HomeLogicService {
     }
   }
 
-  private processIncomes(
+  private accumulateIncomes(
     transactions: Transaction[],
     projectView: ProjectView
   ): void {
