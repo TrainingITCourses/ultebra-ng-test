@@ -21,7 +21,6 @@ export class HomeLogicService {
     projects: Project[],
     transactions: Transaction[]
   ): ProjectView[] {
-    // throw new Error('Fake error para probar dependencias ocultas');
     return projects.map((project) =>
       this.composeProjectView(project, transactions)
     );

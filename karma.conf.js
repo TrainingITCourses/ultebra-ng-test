@@ -50,11 +50,11 @@ module.exports = function (config) {
       color: {
         defaultFg: "black",
         expectedFg: "black",
-        expectedBg: "bgGreen",
-        expectedWhitespaceBg: "bgGreen",
+        expectedBg: "bgGreenBright",
+        expectedWhitespaceBg: "bgGreenBright",
         actualFg: "black",
-        actualBg: "bgRed",
-        actualWhitespaceBg: "bgRed",
+        actualBg: "bgRedBright",
+        actualWhitespaceBg: "bgRedBright",
       },
     },
 
