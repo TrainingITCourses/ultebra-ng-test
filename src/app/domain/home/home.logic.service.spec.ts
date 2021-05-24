@@ -18,12 +18,12 @@ import { TasksView } from './models/tasksView';
 fdescribe('Home Logic Service', () => {
   describe('GIVEN: a composeTasksView method ', () => {
     let sut: HomeLogicService;
+    let inputTasks: Task[];
     beforeEach(() => {
       // Arrange
       sut = new HomeLogicService();
     });
     describe('WHEN called with an empty array', () => {
-      let inputTasks: Task[];
       beforeEach(() => {
         inputTasks = [];
       });
@@ -36,7 +36,6 @@ fdescribe('Home Logic Service', () => {
       });
     });
     describe('WHEN called with one pending task', () => {
-      let inputTasks: Task[];
       beforeEach(() => {
         inputTasks = [{ id: '', projectId: '', title: '', done: false }];
       });
@@ -49,7 +48,6 @@ fdescribe('Home Logic Service', () => {
       });
     });
     describe('WHEN called with one done task', () => {
-      let inputTasks: Task[];
       beforeEach(() => {
         inputTasks = [{ id: '', projectId: '', title: '', done: true }];
       });
@@ -62,7 +60,6 @@ fdescribe('Home Logic Service', () => {
       });
     });
     describe('WHEN called with one done task and two undone', () => {
-      let inputTasks: Task[];
       beforeEach(() => {
         inputTasks = [
           { id: '', projectId: '', title: '', done: true },
