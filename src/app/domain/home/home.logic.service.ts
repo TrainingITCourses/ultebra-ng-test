@@ -10,12 +10,14 @@ import { TransactionType } from './models/transaction-type';
 })
 export class HomeLogicService {
   constructor() {}
+
   public composeTasksView(tasks: Task[]): TasksView {
     return {
       total: tasks.length,
       pending: tasks.filter((task) => !task.done).length,
     };
   }
+
   public filterTransactionsByProjectId(
     transactions: Transaction[],
     projectId: string
