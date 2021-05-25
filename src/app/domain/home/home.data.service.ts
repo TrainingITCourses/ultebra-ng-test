@@ -16,9 +16,11 @@ export class HomeDataService {
   getProjects$(): Observable<Project[]> {
     return this.httpClient.get<Project[]>(`${this.rootUrl}/projects`);
   }
+
   getTasks$(): Observable<Task[]> {
     return this.httpClient.get<Task[]>(`${this.rootUrl}/tasks`);
   }
+
   getTransactions$(): Observable<Transaction[]> {
     return this.httpClient.get<Transaction[]>(`${this.rootUrl}/transactions`);
   }

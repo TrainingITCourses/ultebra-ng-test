@@ -8,6 +8,7 @@ fdescribe('The Home Data Service', () => {
   describe('GIVEN: the GetProjects$', () => {
     let sut: HomeDataService;
     let httpClientSpy: jasmine.SpyObj<HttpClient>;
+
     beforeEach(() => {
       httpClientSpy = jasmine.createSpyObj('HttpClient', {
         get: of([
