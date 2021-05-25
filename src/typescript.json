@@ -58,7 +58,7 @@
     "description": "Esqueleto GWT para con Jasmine"
   },
   "Jasmine Component View": {
-    "prefix": "ab-jsm-cvw",
+    "prefix": "ab-jas-cvw",
     "body": [
       "import { DebugElement } from '@angular/core';",
       "import { ComponentFixture, TestBed } from '@angular/core/testing';",
