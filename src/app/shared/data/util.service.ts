@@ -10,7 +10,7 @@ export class UtilService {
   constructor(private title: Title) {}
 
   public setDocumentTitle(pageTitle: string = ''): void {
-    const documentTitle = `${pageTitle} - ${this.siteTitle}`;
+    const documentTitle = `${pageTitle} | ${this.siteTitle}`;
 
     this.title.setTitle(documentTitle);
   }

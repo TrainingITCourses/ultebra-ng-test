@@ -1,0 +1,60 @@
+{
+  "Jasmine It should": {
+    "prefix": "ab-jas-it",
+    "body": [
+      "describe('$1', () => {",
+      "  it('should $2', () => {",
+      "    // Act",
+      "    const actual = sut;",
+      "    // Assert",
+      "    const expected = null;",
+      "    expect(actual).toEqual(expected);",
+      "  });",
+      "});"
+    ],
+    "description": "Esqueleto simple con Jasmine"
+  },
+  "Jasmine Given Then": {
+    "prefix": "ab-jas-gt",
+    "body": [
+      "describe('GIVEN: $1', () => {",
+      "  let sut;",
+      "  beforeEach(() => {",
+      "    // Arrange",
+      "    sut = null;",
+      "  });",
+      "  it('THEN $2', () => {",
+      "    // Act",
+      "    const actual = null;",
+      "    // Assert",
+      "    const expected = null;",
+      "    expect(actual).toEqual(expected);",
+      "  });",
+      "});"
+    ],
+    "description": "Esqueleto GT con Jasmine"
+  },
+  "Esqueleto GWT para con Jasmine": {
+    "prefix": "ab-jas-gwt",
+    "body": [
+      "describe('$1', () => {",
+      "  describe('GIVEN: $2', () => {",
+      "    let sut = null;",
+      "    let input = null;",
+      "    let actual = null;",
+      "    beforeEach(() => {",
+      "    });",
+      "    describe('WHEN $3', () => {",
+      "      beforeEach(() => {",
+      "      });",
+      "      it('THEN should $4', () => {",
+      "        const expected= null;",
+      "        expect(actual).toEqual(expected);",
+      "      });",
+      "    });",
+      "  });",
+      "});"
+    ],
+    "description": "Esqueleto GWT para con Jasmine"
+  }
+}
