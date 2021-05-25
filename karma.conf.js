@@ -3,42 +3,71 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require("karma-jasmine"),
+      require("karma-chrome-launcher"),
+      require("karma-mocha-reporter"),
+      require("karma-jasmine-diff-reporter"),
+      require("karma-coverage-istanbul-reporter"),
+      require("@angular-devkit/build-angular/plugins/karma"),
     ],
-    client: {
-      jasmine: {
-        // you can add configuration options for Jasmine here
-        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
-        // for example, you can disable the random execution with `random: false`
-        // or set a specific seed with `seed: 4321`
-      },
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
-    jasmineHtmlReporter: {
-      suppressAll: true // removes the duplicated traces
-    },
-    coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ultebra-ng-test'),
-      subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
-    },
-    reporters: ['progress', 'kjhtml'],
+
+    // 1 - Trigger
+    autoWatch: true,
+    restartOnFileChange: true,
+    singleRun: false,
+
+    // 2 - Build
+    basePath: "",
+    frameworks: ["jasmine", "@angular-devkit/build-angular"],
+
+    // 3 - Run
     port: 9876,
+    browsers: ["ChromeHeadless"],
+
+    // 4 - Report
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    reporters: ["jasmine-diff", "mocha"],
+    mochaReporter: {
+      showDiff: true,
+      output: true,
+      ignoreSkipped: true,
+      colors: {
+        success: "green",
+        info: "blue",
+        warning: "orange",
+        error: "red",
+      },
+      symbols: {
+        success: "✓",
+        info: "i",
+        warning: "⚠",
+        error: "X",
+      },
+    },
+    jasmineDiffReporter: {
+      color: {
+        defaultFg: "black",
+        expectedFg: "black",
+        expectedBg: "bgGreenBright",
+        expectedWhitespaceBg: "bgGreenBright",
+        actualFg: "black",
+        actualBg: "bgRedBright",
+        actualWhitespaceBg: "bgRedBright",
+      },
+    },
+
+    client: {
+      jasmine: {},
+      clearContext: false,
+    },
+
+    // 5 - Coverage
+    coverageIstanbulReporter: {
+      dir: require("path").join(__dirname, "./coverage/angular-budget"),
+      reports: ["html", "lcovonly", "text-summary"],
+      fixWebpackSourcePaths: true,
+    },
   });
 };
