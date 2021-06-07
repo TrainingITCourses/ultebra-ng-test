@@ -8,7 +8,7 @@ import { Status } from './models/status';
 // Test collaboration with spies
 // Test functionality with stubs
 
-fdescribe('The Home Data Service', () => {
+describe('The Home Data Service', () => {
   describe('GIVEN: the GetProjects$', () => {
     let sut: HomeDataService;
     let httpClientStub: jasmine.SpyObj<HttpClient>;

@@ -4,7 +4,7 @@ import { UtilService } from './util.service';
 // 2 - S.U.T. WITH dependencies
 // Test collaboration with spies
 
-fdescribe('The Utils service', () => {
+describe('The Utils service', () => {
   describe('GIVEN: the setDocumentTitle ', () => {
     let sut: UtilService;
     let titleServiceSpy: jasmine.SpyObj<Title>;

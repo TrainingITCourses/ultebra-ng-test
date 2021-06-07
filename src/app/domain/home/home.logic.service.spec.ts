@@ -5,7 +5,7 @@ import { TasksView } from './models/tasksView';
 // 1 - S.U.T. WITHOUT dependencies
 // Test like any other TypeScript class
 
-fdescribe('Home Logic Service', () => {
+describe('Home Logic Service', () => {
   describe('GIVEN: a composeTasksView method ', () => {
     let sut: HomeLogicService;
     let inputTasks: Task[];
