@@ -30,7 +30,7 @@ describe('The About Component', () => {
 })
 class FakePageTemplate {}
 
-fdescribe('GIVEN the AboutComponent', () => {
+describe('GIVEN the AboutComponent', () => {
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
   let debugEl: DebugElement;
