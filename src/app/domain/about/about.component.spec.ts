@@ -1,11 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UiModule } from 'src/app/shared/ui/ui.module';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { UiModule } from 'src/app/shared/ui/ui.module';
 import { AboutComponent } from './about.component';
+
+// 4 - S.U.T. COMPONENT WITHOUT dependencies
+// Test like any other TypeScript class
 
 fdescribe('The About Component', () => {
   describe('GIVEN: an instance of the controller', () => {
     let sut = new AboutComponent();
-    let input = null;
     let actual: unknown = null;
     beforeEach(() => {});
 
@@ -39,29 +41,29 @@ fdescribe('The About Component', () => {
 //   });
 // });
 
-fdescribe('GIVEN: the AboutComponent in a TesBed', () => {
-  let component: AboutComponent;
-  let fixture: ComponentFixture<AboutComponent>;
-  beforeEach(async () => {
-    // Arrange
-    await TestBed.configureTestingModule({
-      imports: [UiModule], // lo necesitamos para la vista
-      declarations: [AboutComponent],
-      providers: [],
-    }).compileComponents();
-  });
-  describe('WHEN ask for title at the view', () => {
-    beforeEach(() => {
-      fixture = TestBed.createComponent(AboutComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges(); // simulación del comportamiento
-    });
-    it('THEN should show Angular Budget', () => {
-      // Act
-      const actual = component.title;
-      // Assert
-      const expected = 'Angular Budget';
-      expect(actual).toEqual(expected);
-    });
-  });
-});
+// fdescribe('GIVEN: the AboutComponent in a TesBed', () => {
+//   let component: AboutComponent;
+//   let fixture: ComponentFixture<AboutComponent>;
+//   beforeEach(async () => {
+//     // Arrange
+//     await TestBed.configureTestingModule({
+//       imports: [UiModule], // lo necesitamos para la vista
+//       declarations: [AboutComponent],
+//       providers: [],
+//     }).compileComponents();
+//   });
+//   describe('WHEN ask for title at the view', () => {
+//     beforeEach(() => {
+//       fixture = TestBed.createComponent(AboutComponent);
+//       component = fixture.componentInstance;
+//       fixture.detectChanges(); // simulación del comportamiento
+//     });
+//     it('THEN should show Angular Budget', () => {
+//       // Act
+//       const actual = component.title;
+//       // Assert
+//       const expected = 'Angular Budget';
+//       expect(actual).toEqual(expected);
+//     });
+//   });
+// });

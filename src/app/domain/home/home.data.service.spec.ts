@@ -4,13 +4,18 @@ import { HomeDataService } from './home.data.service';
 import { Project } from './models/project';
 import { Status } from './models/status';
 
+// 3 - S.U.T. WITH DATA dependencies
+// Test collaboration with spies
+// Test functionality with stubs
+
 fdescribe('The Home Data Service', () => {
   describe('GIVEN: the GetProjects$', () => {
     let sut: HomeDataService;
-    let httpClientSpy: jasmine.SpyObj<HttpClient>;
+    let httpClientStub: jasmine.SpyObj<HttpClient>;
 
     beforeEach(() => {
-      httpClientSpy = jasmine.createSpyObj('HttpClient', {
+      // Arrange
+      httpClientStub = jasmine.createSpyObj('HttpClient', {
         get: of([
           {
             id: 'mi-primer-proyecto',
@@ -30,14 +35,16 @@ fdescribe('The Home Data Service', () => {
           },
         ]),
       });
-      sut = new HomeDataService(httpClientSpy);
+      sut = new HomeDataService(httpClientStub);
     });
     describe('WHEN called', () => {
       beforeEach(() => {
+        // Act
         sut.getProjects$().subscribe();
       });
       it('THEN should use the expected url', () => {
-        const actual = httpClientSpy.get.calls.mostRecent().args[0];
+        // Assert
+        const actual = httpClientStub.get.calls.mostRecent().args[0];
         const expected = 'https://api-base-21.herokuapp.com/api/pub/projects';
         expect(actual).toEqual(expected);
       });

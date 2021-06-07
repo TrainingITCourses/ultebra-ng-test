@@ -1,53 +1,42 @@
 {
-  "Jasmine It should": {
-    "prefix": "ab-jas-it",
+  "Jasmine It Should": {
+    "prefix": "ab-jas-is",
     "body": [
       "describe('$1', () => {",
-      "  it('should $2', () => {",
-      "    // Act",
-      "    const actual = sut;",
-      "    // Assert",
-      "    const expected = null;",
-      "    expect(actual).toEqual(expected);",
-      "  });",
-      "});"
-    ],
-    "description": "Esqueleto simple con Jasmine"
-  },
-  "Jasmine Given Then": {
-    "prefix": "ab-jas-gt",
-    "body": [
-      "describe('GIVEN: $1', () => {",
       "  let sut;",
       "  beforeEach(() => {",
       "    // Arrange",
-      "    sut = null;",
+      "    sut = new SubjectUnderTest();",
       "  });",
-      "  it('THEN $2', () => {",
+      "  it('should $2', () => {",
       "    // Act",
-      "    const actual = null;",
+      "    const actual = sut.callMethod();",
       "    // Assert",
-      "    const expected = null;",
+      "    const expected = something;",
       "    expect(actual).toEqual(expected);",
       "  });",
       "});"
     ],
-    "description": "Esqueleto GT con Jasmine"
+    "description": "Esqueleto simple IS con Jasmine"
   },
-  "Esqueleto GWT para con Jasmine": {
+  "Jasmine Given When Then": {
     "prefix": "ab-jas-gwt",
     "body": [
       "describe('$1', () => {",
       "  describe('GIVEN: $2', () => {",
       "    let sut = null;",
-      "    let input = null;",
       "    let actual = null;",
       "    beforeEach(() => {",
+      "     // Arrange",
+      "     sut = new SubjectUnderTest();",
       "    });",
       "    describe('WHEN $3', () => {",
       "      beforeEach(() => {",
+      "       // Act",
+      "       actual = sut.callMethod();",
       "      });",
       "      it('THEN should $4', () => {",
+      "        // Assert",
       "        const expected= null;",
       "        expect(actual).toEqual(expected);",
       "      });",
@@ -55,10 +44,10 @@
       "  });",
       "});"
     ],
-    "description": "Esqueleto GWT para con Jasmine"
+    "description": "Esqueleto GWT para usar con Jasmine"
   },
-  "Jasmine Component View": {
-    "prefix": "ab-jas-cvw",
+  "Jasmine Angular Component View": {
+    "prefix": "ab-jas-ngcv",
     "body": [
       "import { DebugElement } from '@angular/core';",
       "import { ComponentFixture, TestBed } from '@angular/core/testing';",
@@ -75,18 +64,18 @@
       "    await TestBed.configureTestingModule({",
       "      declarations: [$1Component],",
       "    }).compileComponents();",
-      "  });",
-      "",
-      "  beforeEach(() => {",
-      "    // Arrange",
       "    fixture = TestBed.createComponent($1Component);",
       "    component = fixture.componentInstance;",
       "    debugEl = fixture.debugElement;",
       "    nativeEl = fixture.nativeElement;",
-      "    fixture.detectChanges();",
+      "  });",
+      "  describe('WHEN $2', () => {",
+      "    beforeEach(() => {",
+      "      // Act",
+      "     fixture.detectChanges();",
       "  });",
       "",
-      "  it('WHEN $2 THEN $3', () => {",
+      "  it('THEN $3', () => {",
       "    // Act",
       "    const actual = '';$0",
       "    // Assert",
@@ -95,6 +84,6 @@
       "  });",
       "});"
     ],
-    "description": "Esqueleto mejorado para tests de compoentes Angular"
+    "description": "GWT para compoentes Angular con Jasmine"
   }
 }
