@@ -118,12 +118,10 @@ Accedemos al resultado de la ejecución consultando
 
 ### Aprovechamos la **inversión de control** en _providers_
 
-````typescript
-providers: [
-  {provide : Dependency, useValue: stub}
-]```
+```typescript
+providers: [{ provide: Dependency, useValue: stub }];
+```
 
 ---
 
 > > By [Alberto Basalo](https://twitter.com/albertobasalo)
-````
