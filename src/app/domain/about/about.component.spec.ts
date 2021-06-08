@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AboutComponent } from './about.component';
@@ -24,12 +24,6 @@ describe('The About Component', () => {
   });
 });
 
-@Component({
-  selector: 'ab-page',
-  template: `<ng-content></ng-content>`,
-})
-class FakePageTemplate {}
-
 describe('GIVEN the AboutComponent', () => {
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
@@ -39,46 +33,39 @@ describe('GIVEN the AboutComponent', () => {
   beforeEach(async () => {
     // Arrange
     await TestBed.configureTestingModule({
-      declarations: [AboutComponent, FakePageTemplate],
-      // imports: [UiModule],
-      // schemas: [NO_ERRORS_SCHEMA],
+      declarations: [AboutComponent],
     }).compileComponents();
-
     fixture = TestBed.createComponent(AboutComponent);
     component = fixture.componentInstance;
     debugEl = fixture.debugElement;
     nativeEl = fixture.nativeElement;
   });
-  describe('WHEN is title is auto initialized ', () => {
+  describe('WHEN the title is not initialized', () => {
     beforeEach(() => {
       // Act
       fixture.detectChanges();
     });
 
-    it('THEN the title sould be shown in upprecase in a H2 tag  ', () => {
-      // Act
-      const actual = nativeEl.querySelector('h2')?.textContent;
+    it('THEN is shown in a H2 tag', () => {
       // Assert
-      const expected = 'ANGULAR BUDGET';
+      const actual = nativeEl.querySelector('h2')?.textContent;
+      const expected = 'Angular Budget';
       expect(actual).toEqual(expected);
-
-      // alternativa
       const actual2 = debugEl.query(By.css('h2')).nativeElement.textContent;
       expect(actual2).toEqual(expected);
     });
   });
-  describe('WHEN is title property is changed ', () => {
+  describe('WHEN the title is changed after initialized', () => {
     beforeEach(() => {
       // Act
-      component.title = 'Ultebra';
+      component.title = 'Changed after initialization';
       fixture.detectChanges();
     });
 
-    it('THEN the view title sould be shown change also  ', () => {
-      const actual = nativeEl.querySelector('h2')?.textContent;
-      console.log(component.title);
+    it('THEN the actualized title is shown in a H2 tag', () => {
       // Assert
-      const expected = 'ULTEBRA';
+      const actual = nativeEl.querySelector('h2')?.textContent;
+      const expected = 'Changed after initialization';
       expect(actual).toEqual(expected);
     });
   });
