@@ -7,7 +7,7 @@ import { UiModule } from 'src/app/shared/ui/ui.module';
 import { ProjectsService } from '../projects.service';
 import { ProjectComponent } from './project.component';
 
-fdescribe('GIVEN the ProjectComponent', () => {
+describe('GIVEN the ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;
   let debugEl: DebugElement;
