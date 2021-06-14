@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
+import { ProjectView } from '../../core/models/project-view';
+import { TasksView } from '../../core/models/tasksView';
 import { HomeDataService } from './home.data.service';
 import { HomeLogicService } from './home.logic.service';
-import { ProjectView } from './models/project-view';
-import { TasksView } from './models/tasksView';
 
 @Component({
   selector: 'ab-home',

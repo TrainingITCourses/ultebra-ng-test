@@ -1,0 +1,11 @@
+<article *ngIf=" project$ | async as project">
+  <header>
+    <h2>
+      {{ project.title }}
+    </h2>
+    <p>{{ project.description }}</p>
+  </header>
+  <main>
+    <pre>{{ project | json }}</pre>
+  </main>
+</article>

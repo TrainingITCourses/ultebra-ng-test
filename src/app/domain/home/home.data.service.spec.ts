@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
+import { Project } from '../../core/models/project';
+import { Status } from '../../core/models/status';
 import { HomeDataService } from './home.data.service';
-import { Project } from './models/project';
-import { Status } from './models/status';
 
 // 3 - S.U.T. WITH DATA dependencies
 // Test collaboration with spies
