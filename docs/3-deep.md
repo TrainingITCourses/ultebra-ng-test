@@ -55,7 +55,7 @@ async await
 
 ## 4 - Form nuevo... (model driven...)
 
-whenStable, dispatchEvent
+toHaveBeenCalled, dispatchEvent
 
 ---
 
