@@ -49,7 +49,9 @@ fakeAsync
 
 ## 3 - Projects/id...
 
-routerTestingModule ngZone whenStable
+routerTestingModule
+ngZone whenStable
+async await
 
 ## 4 - Form nuevo... (model driven...)
 

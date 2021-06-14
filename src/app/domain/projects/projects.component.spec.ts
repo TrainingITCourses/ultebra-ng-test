@@ -13,7 +13,7 @@ import { UiModule } from 'src/app/shared/ui/ui.module';
 import { ProjectsComponent } from './projects.component';
 import { ProjectsService } from './projects.service';
 
-fdescribe('GIVEN the ProjectsComponent', () => {
+describe('GIVEN the ProjectsComponent', () => {
   let component: ProjectsComponent;
   let fixture: ComponentFixture<ProjectsComponent>;
   let debugEl: DebugElement;
