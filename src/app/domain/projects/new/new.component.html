@@ -1,0 +1,26 @@
+<article>
+  <header>
+    <h2>Nuevo Proyecto</h2>
+  </header>
+  <main>
+    <form [formGroup]="form">
+      <label for="title">Nombre:</label>
+      <input type="text"
+             formControlName="title"
+             name="title">
+      <label for="title">Inicio:</label>
+      <input type="date"
+             formControlName="start"
+             name="start">
+      <label for="title">Fin:</label>
+      <input type="date"
+             formControlName="end"
+             name="end">
+      <label for="title">Presupuesto:</label>
+      <input type="number"
+             formControlName="budget"
+             name="budget">
+      <button type="submit" (click)="onSaveClick()">Crear</button>
+    </form>
+  </main>
+</article>

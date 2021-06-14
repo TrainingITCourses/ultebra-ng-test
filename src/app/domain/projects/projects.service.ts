@@ -89,4 +89,7 @@ export class ProjectsService {
       projectView.totalIncomes = 0;
     }
   }
+  postProject$(newProject: Project): Observable<Project> {
+    return this.http.post<Project>(`${this.rootUrl}/projects/`, newProject);
+  }
 }
