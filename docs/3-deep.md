@@ -18,7 +18,7 @@
 
 `src\app\shared\ui\label-value\label-value.component.spec.ts`
 
-### 1 - Creamos un componente parent probador
+### 1.1 - Creamos un componente parent probador
 
 ```typescript
 @Component({
@@ -28,7 +28,7 @@
 class FakeParentComponent {}
 ```
 
-### 2 - Pero usamos el hijo real
+### 1.2 - Pero usamos el hijo real
 
 ```typescript
 await TestBed.configureTestingModule({
@@ -38,7 +38,17 @@ await TestBed.configureTestingModule({
 
 ---
 
-## 2 - Profundizar desde Home...
+## 2 - Projects
+
+fakeAsync, tick,
+
+## 3 - Projects/id...
+
+routerTestingModule ngZone whenStable
+
+## 4 - Form nuevo... (model driven...)
+
+whenStable, dispatchEvent
 
 ---
 

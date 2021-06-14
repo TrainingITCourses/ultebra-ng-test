@@ -1,31 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Project } from '../../core/models/project';
-import { ProjectView } from '../../core/models/project-view';
-import { Task } from '../../core/models/task';
-import { TasksView } from '../../core/models/tasksView';
-import { Transaction } from '../../core/models/transaction';
-import { TransactionType } from '../../core/models/transaction-type';
+import { Observable } from 'rxjs';
+import { Project } from 'src/app/core/models/project';
+import { ProjectView } from 'src/app/core/models/project-view';
+import { Transaction } from 'src/app/core/models/transaction';
+import { TransactionType } from 'src/app/core/models/transaction-type';
+
 @Injectable({
   providedIn: 'root',
 })
-export class HomeLogicService {
-  constructor() {}
+export class ProjectsService {
+  private rootUrl = `https://api-base-21.herokuapp.com/api/pub`;
 
-  public composeTasksView(tasks: Task[]): TasksView {
-    return {
-      total: tasks.length,
-      pending: tasks.filter((task) => !task.done).length,
-    };
+  constructor(private http: HttpClient) {}
+
+  getProjects$(): Observable<Project[]> {
+    return this.http.get<Project[]>(`${this.rootUrl}/projects`);
+  }
+  getTransactions$(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.rootUrl}/transactions`);
   }
 
-  public filterTransactionsByProjectId(
-    transactions: Transaction[],
-    projectId: string
-  ): Transaction[] {
-    return transactions.filter(
-      (transaction) => transaction.projectId === projectId
-    );
-  }
   public composeProjectViews(
     projects: Project[],
     transactions: Transaction[]
@@ -35,6 +30,15 @@ export class HomeLogicService {
       this.composeProjectView(project, transactions)
     );
   }
+  public filterTransactionsByProjectId(
+    transactions: Transaction[],
+    projectId: string
+  ): Transaction[] {
+    return transactions.filter(
+      (transaction) => transaction.projectId === projectId
+    );
+  }
+
   public composeProjectView(
     project: Project,
     transactions: Transaction[]

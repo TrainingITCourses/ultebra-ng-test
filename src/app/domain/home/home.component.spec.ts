@@ -2,10 +2,10 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
+import { Status } from '../../core/models/status';
 import { HomeComponent } from './home.component';
 import { HomeDataService } from './home.data.service';
 import { HomeLogicService } from './home.logic.service';
-import { Status } from './models/status';
 
 fdescribe('GIVEN the HomeComponent', () => {
   let component: HomeComponent;

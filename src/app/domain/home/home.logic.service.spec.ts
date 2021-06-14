@@ -1,6 +1,6 @@
+import { Task } from '../../core/models/task';
+import { TasksView } from '../../core/models/tasksView';
 import { HomeLogicService } from './home.logic.service';
-import { Task } from './models/task';
-import { TasksView } from './models/tasksView';
 
 // 1 - S.U.T. WITHOUT dependencies
 // Test like any other TypeScript class
