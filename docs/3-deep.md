@@ -1,4 +1,4 @@
-# 2 - Pruebas de componentes... con integración profunda
+# 3 - Pruebas de componentes... con integración profunda
 
 ## Pruebas de Angular con TestBed y directivas
 

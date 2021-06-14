@@ -7,7 +7,7 @@ import { HomeComponent } from './home.component';
 import { HomeDataService } from './home.data.service';
 import { HomeLogicService } from './home.logic.service';
 
-fdescribe('GIVEN the HomeComponent', () => {
+describe('GIVEN the HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let debugEl: DebugElement;
