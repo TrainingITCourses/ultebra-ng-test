@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { LabelValueComponent } from './label-value.component';
 
-fdescribe('GIVEN the LabelValueComponent', () => {
+describe('GIVEN the LabelValueComponent', () => {
   let component: FakeParentComponent;
   let fixture: ComponentFixture<FakeParentComponent>;
   let debugEl: DebugElement;

@@ -4,7 +4,7 @@
 
 ---
 
-## Directivas
+## Plantillas, Pipes y Directivas
 
 - Probar el comportamiento superficial requiere profundizar
 
@@ -40,7 +40,12 @@ await TestBed.configureTestingModule({
 
 ## 2 - Projects
 
-fakeAsync, tick,
+`src\app\domain\projects\projects.component.spec.ts`
+NO_ERRORS_SCHEMA
+UiModule
+component.ngOnInit();
+tick(1000);
+fakeAsync
 
 ## 3 - Projects/id...
 
@@ -54,9 +59,7 @@ whenStable, dispatchEvent
 
 > > By [Alberto Basalo](https://twitter.com/albertobasalo)
 
-````
-
 ```
 
+
 ```
-````

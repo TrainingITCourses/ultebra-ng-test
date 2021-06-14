@@ -1,25 +1,84 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+import { NoDataYetComponent } from 'src/app/shared/ui/no-data-yet/no-data-yet.component';
+import { UiModule } from 'src/app/shared/ui/ui.module';
 import { ProjectsComponent } from './projects.component';
+import { ProjectsService } from './projects.service';
 
-describe('ProjectsComponent', () => {
+fdescribe('GIVEN the ProjectsComponent', () => {
   let component: ProjectsComponent;
   let fixture: ComponentFixture<ProjectsComponent>;
+  let debugEl: DebugElement;
+  let nativeEl: HTMLElement;
 
   beforeEach(async () => {
+    // Arrange
     await TestBed.configureTestingModule({
-      declarations: [ ProjectsComponent ]
-    })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
+      declarations: [ProjectsComponent],
+      imports: [UiModule],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        {
+          provide: ProjectsService,
+          useValue: jasmine.createSpyObj('ProjectsService', {
+            getProjects$: of([]).pipe(delay(100)),
+            getTransactions$: of([]).pipe(),
+            composeProjectViews: [],
+          }),
+        },
+      ],
+    }).compileComponents();
     fixture = TestBed.createComponent(ProjectsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    debugEl = fixture.debugElement;
+    nativeEl = fixture.nativeElement;
   });
+  describe('WHEN initializing', () => {
+    beforeEach(() => {
+      // Act
+      fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    it('THEN renders ab-no-data-yet', () => {
+      // Act
+      const actual: DebugElement = debugEl.query(
+        By.directive(NoDataYetComponent)
+      );
+      // Assert
+      expect(actual).toBeDefined();
+    });
+    it('AND THEN shows _Esperando datos..._', () => {
+      // Act
+      const quoteDebug: DebugElement = debugEl.query(By.css('blockquote'));
+      const quoteNative: HTMLElement = quoteDebug.nativeElement;
+      const actual = quoteNative.textContent;
+      // Assert
+      const expected = 'Esperando datos...';
+      expect(actual).toEqual(expected);
+    });
+  });
+  describe('WHEN initialized and stable', () => {
+    beforeEach(() => {
+      // Act
+      fixture.detectChanges();
+      component.ngOnInit();
+      fixture.detectChanges();
+    });
+    it('THEN there is a table', fakeAsync(() => {
+      // Act
+      tick(1000); // espera para que se resuelva el observable
+      fixture.detectChanges(); // fuerza el recálculo de la vista
+      const actual: any = nativeEl.querySelector('table');
+      // Assert
+      expect(actual).toBeDefined();
+    }));
   });
 });
